@@ -147,7 +147,7 @@ app.patch('/author/:id', (req, res)=>{
 
     }
 
-    const name = { name } = req.body;
+    const { name } = req.body;
     if(!name){
         return res.status(400).send({ message: 'Name is required' });
     }
