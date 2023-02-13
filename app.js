@@ -147,6 +147,11 @@ app.patch('/author/:id', (req, res)=>{
 
     }
 
+    const name = { name } = req.body;
+    if(!name){
+        return res.status(400).send({ message: 'Name is required' });
+    }
+
     const existingAuthor = author.find(x => x.name === name.trim());
     if(existingAuthor){
         return res.status(400).send({ message: "Author already exists" });
